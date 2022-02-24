@@ -16,7 +16,7 @@ async function setup() {
     // // const templateFetch = await fetch("static/app/app.xml");
     // // const templates = await templateFetch.text();
     const env = {};
-    mount(Header, document.body, { templates, env });
+    mount(Shop, document.body, { templates, env });
 }
 
 whenReady(setup);

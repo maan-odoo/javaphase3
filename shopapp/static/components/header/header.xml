@@ -5,9 +5,9 @@
             <img class="o_logo" src="static/img/logo.png"/>
             <div class="o_menus">
                 <ul>
-                    <li><a href="/">Forum</a></li>
-                    <li><a href="/shop">Shop</a></li>
-                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/">Shoes</a></li>
+                    <li><a href="/">Mobile</a></li>
+                    <li><a href="/">Laptop</a></li>
                 </ul>
             </div>
         </div>
