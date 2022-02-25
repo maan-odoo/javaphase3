@@ -1,0 +1,46 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Shoes1 Niky",
+            "image": "/static/img/product1.jpeg",
+            "description": "This is shoes 1 ",
+            "price":"1450"
+        },
+        {
+            "id": 2,
+            "name": "Shoes2 Adisdas",
+            "image": "/static/img/product2.jpeg",
+            "description": "This is shoes 2",
+            "price":"1850"
+        },
+        {
+            "id": 3,
+            "name": "Shoes3 Puma",
+            "image": "/static/img/product3.jpeg",
+            "description": "This is shoes 3 Puma shoes ",
+            "price":"2510"
+        },
+        {
+            "id": 4,
+            "name": "Shoes4 Niky",
+            "image": "/static/img/product4.jpeg",
+            "description": "This is shoes 4 ",
+            "price":"1120"
+        },
+        {
+            "id": 5,
+            "name": "Shoes5 Red Chief",
+            "image": "/static/img/product5.jpeg",
+            "description": "This is shoes 5 ",
+            "price":"2500"
+        },
+        {
+            "id": 5,
+            "name": "Shoes5 Bata",
+            "image": "/static/img/product5.jpeg",
+            "description": "This is shoes 5 ",
+            "price":"1780"
+        }
+    ]
+}

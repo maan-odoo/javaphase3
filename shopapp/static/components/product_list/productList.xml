@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="ProductList">
+        <div class="o_product_list">
+            <ProductItem t-foreach="products" t-as="productItem" t-key="productItem_index" productItem="productItem"/>
+        </div>
+    </t>
+</templates> 

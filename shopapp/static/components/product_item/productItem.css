@@ -1,0 +1,22 @@
+.o_product-item{
+    padding: 5px;
+    margin: 5px;
+}
+.o_product-item img{
+    height: 200px;
+    width: 250px;
+}
+.o_btn_add_cart{
+    margin: 10px;
+    background-color: darkorchid;
+    color: aliceblue;
+    height: 30px;
+    width: auto;
+    border-radius: 25px;
+    border: none;
+}
+.o_btn_add_cart:hover{
+    margin: 10px;
+    background-color:aliceblue; 
+    color: darkorchid;
+}

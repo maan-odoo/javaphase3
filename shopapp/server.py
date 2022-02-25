@@ -33,6 +33,7 @@ class Application:
             [
                 Rule("/", endpoint="index"),
                 Rule("/load-qweb", endpoint="loadQweb"),
+                Rule("/get_products", endpoint="getProduct"),
             ]
         )
 
@@ -49,6 +50,7 @@ class Application:
         except HTTPException as e:
             return e
 
+
     def index(self, request):
         html = open("templates/index.html", 'r').read()
         return Response(html, mimetype='text/html')
@@ -57,6 +59,9 @@ class Application:
         files = [
             "static/app/app.xml",
             "static/components/header/header.xml",
+            "static/components/product_list/productList.xml",
+            "static/components/product_item/productItem.xml",
+          
         ]
         concatedXml = self._concat_xml(files)
         concatedXml = concatedXml.decode("utf-8")
@@ -122,6 +127,7 @@ class Application:
         checksum = hashlib.new('sha1')
         if not fileList:
             return b'', checksum.hexdigest()
+            
 
         root = None
         for fname in fileList:
@@ -138,6 +144,24 @@ class Application:
                 root.append(template)
 
         return etree.tostring(root, encoding='utf-8') if root is not None else b''
+
+    def getProduct(self,request,**kw):
+        print("************************  SUCCESS * *** ** * *")
+        datas = ""
+        with open("data/data.json", "r") as f:
+            datas = f.read()
+
+        response = {
+            'jsonrpc': '2.0',
+        }
+        mime = 'application/json'
+        result = {'result': datas}
+        body = json.dumps(result)
+        print(body)
+        return Response(
+            body, status=200,
+            headers=[('Content-Type', mime), ('Content-Length', len(body))]
+        )
 
     
 def create_app():
