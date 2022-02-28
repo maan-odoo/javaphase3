@@ -1,7 +1,9 @@
 .o_product-item{
     padding: 5px;
     margin: 5px;
+    cursor: pointer;
 }
+
 .o_product-item img{
     height: 200px;
     width: 250px;

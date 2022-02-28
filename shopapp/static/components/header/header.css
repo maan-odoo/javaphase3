@@ -3,7 +3,7 @@
     position: relative;
     font-size: 20px;
     color: white;
-    background-image: linear-gradient(to right, purple , grey);
+    background-image: linear-gradient(to right, #91ddaa , #e2bfe9);
     margin-bottom: 10px;
 }
 .o_header .o_logo {

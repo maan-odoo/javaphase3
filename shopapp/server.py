@@ -22,6 +22,8 @@ from werkzeug.routing import Rule
 from werkzeug.wrappers import Request
 from werkzeug.wrappers import Response
 
+from config import Shopping
+
 _logger = logging.getLogger(__name__)
 
 class Application:
@@ -36,6 +38,8 @@ class Application:
                 Rule("/get_products", endpoint="getProduct"),
             ]
         )
+        self.shop = Shopping('http://localhost:8069', 'test')
+        self.shop.login('admin', 'admin')
 
     def __call__(self, environ, start_response):
         return self.dispatch(environ, start_response)
@@ -61,6 +65,7 @@ class Application:
             "static/components/header/header.xml",
             "static/components/product_list/productList.xml",
             "static/components/product_item/productItem.xml",
+            "static/components/product_detail/productDetail.xml",
           
         ]
         concatedXml = self._concat_xml(files)
@@ -175,4 +180,4 @@ if __name__ == "__main__":
     from werkzeug.serving import run_simple
 
     application = create_app()
-    run_simple("127.0.0.1", 8000, application, use_debugger=True, use_reloader=True)
+    run_simple("127.0.0.1", 8001, application, use_debugger=True, use_reloader=True)

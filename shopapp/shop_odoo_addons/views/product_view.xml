@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="phase3_product_list" model="ir.ui.view">
+            <field name="name">phase3.product.tree</field>
+            <field name="model">phase3.product</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                    
+                </tree>
+            </field>
+        </record>
+ 
+        <record id="phase3_product_form" model="ir.ui.view">
+            <field name="name">phase3.product.form</field>
+            <field name="model">phase3.product</field>
+            <field name="arch" type="xml">
+                <form>
+                    
+                    <sheet>
+                        <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                        <div class="oe_title">
+                            <label for="name" string="Product Name"/>
+                            <field name="name" default_focus="1" />
+                            <label for="price" string="Product Price"/>
+                            <field name="price" default_focus="1" />
+                            
+                        </div>
+                        <notebook>
+                            
+                            <page string="Description" name="description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_product">
+   		    <field name="name">Products</field>
+            <field name="res_model">phase3.product</field>
+ 		    <field name="view_mode">tree,form</field>
+ 	    </record>
+
+        <menuitem name="JS Phase3 Shopping" id="menu_shop_root"/>
+        <menuitem name="product" id="menu_product_action" parent="menu_shop_root" action="action_product"/>
+
+    </data>
+</odoo>

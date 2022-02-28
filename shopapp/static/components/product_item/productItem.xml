@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
     <t t-name="ProductItem">
-        <div class="o_product-item" t-att-data-id="props.productItem.id">
+        <div class="o_product-item" t-ref="product"  t-att-data-id="props.productItem.id" t-on-click.stop="_onclickProduct">
             <img t-att-src="props.productItem.image" />
             <div>
                 <h4><t t-out="props.productItem.name"/></h4>
