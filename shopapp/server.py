@@ -36,6 +36,7 @@ class Application:
                 Rule("/", endpoint="index"),
                 Rule("/load-qweb", endpoint="loadQweb"),
                 Rule("/get_products", endpoint="getProduct"),
+                Rule("/get_product_details", endpoint="getProductDetails"),
             ]
         )
         self.shop = Shopping('http://localhost:8069', 'test')
@@ -151,18 +152,34 @@ class Application:
         return etree.tostring(root, encoding='utf-8') if root is not None else b''
 
     def getProduct(self,request,**kw):
-        print("************************  SUCCESS * *** ** * *")
+        
         datas = ""
-        with open("data/data.json", "r") as f:
-            datas = f.read()
-
+        # with open("data/data.json", "r") as f:
+        #     datas = f.read()
+        datas = self.shop.search_read('phase3.product', [], ['name','image_512','price'])
         response = {
             'jsonrpc': '2.0',
         }
         mime = 'application/json'
         result = {'result': datas}
+        
         body = json.dumps(result)
-        print(body)
+   
+        return Response(
+            body, status=200,
+            headers=[('Content-Type', mime), ('Content-Length', len(body))]
+        )
+    def getProductDetails(self, request, **kw):
+        print("************************  SUCCESS * *** ** * *")
+        data = json.loads(request.data)
+        print(request)
+        productID = data.get('params')['product_id']
+        domain = [('id', '=', [productID])]   
+        datas = self.shop.search_read('phase3.product', domain, ['name','image_512','price'])
+        mime = 'application/json'
+        result = {'result': datas}
+        body = json.dumps(result)
+        # print(body)
         return Response(
             body, status=200,
             headers=[('Content-Type', mime), ('Content-Length', len(body))]

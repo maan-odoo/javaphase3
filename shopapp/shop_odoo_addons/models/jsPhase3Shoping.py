@@ -6,5 +6,5 @@ class Shop(models.Model):
 
     name = fields.Char()
     description = fields.Html()
-    price = fields.Float()
+    price = fields.Char()
 

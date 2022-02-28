@@ -1,32 +1,16 @@
-const { Component,markup,useRef } = owl;
+import { rpc } from "../../core/rpc.js";
+ const { Component,onWillStart} = owl;
 export class ProductDetail extends Component{
     setup() {
+        // this.params = this.props.params;
+        onWillStart(async () => {
+            console.log(this.props.productID)
 
-        this.productRef = useRef('product');
+            const x = this.props
+            debugger
+            this.datas = await rpc('/get_product_details', { 'product_id': this.props.params.productID });
+        });
     }
-
-    // ---------------------------------------
-    // Getters
-    // ---------------------------------------
-
-    // get getMarkupValue() {
-    //     return markup(this.props.forumItem.description);
-    // }
-
-    // ---------------------------------------
-    // Handlers
-    // ---------------------------------------
-
-    /**
-     * This method redirects to forum details page.
-     *
-     * @param {DOMEvent} ev 
-     */
-    // _onClickForum(ev) {
-    //     const forumID = ev.currentTarget.getAttribute('data-id');
-    //     const changeScreenEvent = new CustomEvent('change-screen', { bubbles: true, detail: { screenName: 'postList', params: { forumID: parseInt(forumID) } }}, );
-    //     this.forumRef.el.dispatchEvent(changeScreenEvent);
-    // }
 }
 
 ProductDetail.template = "ProductDetail"

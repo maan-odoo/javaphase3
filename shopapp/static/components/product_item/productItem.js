@@ -25,8 +25,10 @@ export class ProductItem extends Component {
      * @param {DOMEvent} ev 
      */
      _onclickProduct(ev) {
+     
         const productID = ev.currentTarget.getAttribute('data-id');
         console.log(productID)
+        debugger
         const changeScreenEvent = new CustomEvent('change-screen', { bubbles: true, detail: { screenName: 'ProductDetail', params: { productID: parseInt(productID) } }}, );
         this.productRef.el.dispatchEvent(changeScreenEvent);
         // const postList = this.env.allComponents['postList'];

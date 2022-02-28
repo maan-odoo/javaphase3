@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
     <t t-name="ProductDetail">
-        welcome to product details
-          <t t-out="props.productItem.name"/>
+        <img t-attf-src="data:image/png;base64, {{this.datas[0].image_512}}" />
+            <div>
+                <h4><t t-out="this.datas[0].name"/></h4>
+                <div>
+                    <t t-out="this.datas[0].description"/>
+                    &#8377;
+                    <t t-out="this.datas[0].price"/>
+                    <input type="button" class="o_btn_add_cart" value="add to cart" />
+                </div>
+            </div>
     </t>
 </templates>

@@ -6,8 +6,7 @@ const { Component, onWillStart } = owl;
 export class ProductList extends Component {
     async setup() {
         onWillStart(async () => {
-            const datas = await rpc("/get_products", {});
-            this.products = JSON.parse(datas).products;
+            this.products = await rpc("/get_products", {});
         });
     }
 }
